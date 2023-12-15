@@ -1,0 +1,20 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://Ecommerce-admin:<password>@eccomerce-admin.g0t53le.mongodb.net/?retryWrites=true&w=majority"
+relationMode = "prisma"
+}
+
+model Store {
+  id        String  @id @default(uuid()) @map("_id")
+  name      String
+  userId    String
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
