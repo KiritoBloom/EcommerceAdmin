@@ -8,14 +8,10 @@ const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
-  
 };
-
-
 
 export async function OPTIONS() {
   return NextResponse.json({}, { headers: corsHeaders });
-  
 }
 
 export async function POST(
@@ -36,6 +32,7 @@ export async function POST(
     }
   });
 
+
   const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
 
   products.forEach((product) => {
@@ -46,7 +43,7 @@ export async function POST(
         product_data: {
           name: product.name,
         },
-        unit_amount: product.price
+        unit_amount: product.price * 100
       }
     });
   });
