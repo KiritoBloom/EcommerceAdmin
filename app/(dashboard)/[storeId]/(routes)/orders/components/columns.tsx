@@ -18,6 +18,10 @@ export const columns: ColumnDef<OrderColumn>[] = [
     header: "Products",
   },
   {
+    accessorKey: "createdAt",
+    header: "Created At",
+  },
+  {
     accessorKey: "phone",
     header: "Phone",
   },
